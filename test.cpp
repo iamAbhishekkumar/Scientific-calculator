@@ -1,8 +1,8 @@
 #include<iostream>
 using namespace std;
 int main()
-{int t;
-    cin>>t;
-    cout<<t;
+{int f
+    cin>>f;
+    cout<<f;
 return 0;
 }
