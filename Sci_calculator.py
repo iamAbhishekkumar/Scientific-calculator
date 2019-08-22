@@ -2,30 +2,31 @@ from tkinter import *
 import math
 import unicodedata
 
-val=""
+expression= ""
 PI = unicodedata.lookup("GREEK CAPITAL LETTER PI")
 def btn_clear():
-    global val
-    val = ""
-    var.set("0")
+    global expression
+    expression = ""
+    display.set("0")
 
 def btn_clicked(num):
-    global val
-    val = val+str(num)
-    var.set(val)
+    global expression
+    expression = expression + str(num)
+    display.set(expression)
 
 
 def result():
-    global val
+    global expression
 
     try:
-        res = eval(val, {"sin": math.sin}, {"cos": math.cos})#can only take 3 arguments
-
+        res = eval(expression, {"sin": math.sin}, {"cos":math.cos})             #here is th e[place i want to edit
         res =round(res,13)
-        var.set(str(res))
-        val = str(res)
+        display.set(str(res))
+        expression = str(res)
     except ZeroDivisionError:
-        var.set("Invalid")
+        display.set("Invalid")
+
+
 
 
 root = Tk()
@@ -33,7 +34,7 @@ root.geometry("500x400+120+120")
 root.resizable(0,0)
 root.title("SCIENTIFIC CALCULATOR")
 
-var = StringVar()
+display = StringVar()
 
 frame1 = Frame(root)
 frame1.pack(expand= True, fill="both")
@@ -50,7 +51,7 @@ frame6.pack(expand= True, fill="both")
 
 
 
-entry_box = Entry(frame1, justify =RIGHT, font="Verdana 20", textvariable = var, bg="WHITE").pack(expand = True,fill="both")
+entry_box = Entry(frame1, justify =RIGHT, font="Verdana 20", textvariable = display, bg="WHITE").pack(expand = True, fill="both")
 
 
 btn7 = Button(frame2, text="7", font="Verdana 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(7)).pack(side=LEFT, expand=True, fill="both")
@@ -90,7 +91,7 @@ btn_pi = Button(frame6, text=PI, font="Verdana 22", bd=0, relief=GROOVE, command
 btn_open_bracket = Button(frame6, text="(", font="Verdana 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('(')).pack(side=LEFT, expand=True, fill="both")
 btn_closed_bracket = Button(frame6, text=")", font="Verdana 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(')')).pack(side=LEFT, expand=True, fill="both")
 btn_e = Button(frame6, text="e", font="Verdana 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(math.e)).pack(side=LEFT, expand=True, fill="both")
-btn_ = Button(frame6, text="", font="Verdana 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(')')).pack(side=LEFT, expand=True, fill="both")
+btn_fact = Button(frame6, text="x!", font="Verdana 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('!')).pack(side=LEFT, expand=True, fill="both")
 btn_equal = Button(frame6, text= "=", font="Verdana 22", bd=0, relief=GROOVE, command=result).pack(side=LEFT, expand=True, fill="both")
 
 
