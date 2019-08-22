@@ -19,7 +19,8 @@ def result():
     global val
 
     try:
-        res = eval(val, {"sin": math.sin})
+        res = eval(val, {"sin": math.sin}, {"cos": math.cos})#can only take 3 arguments
+
         res =round(res,13)
         var.set(str(res))
         val = str(res)
