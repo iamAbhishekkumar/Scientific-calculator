@@ -27,17 +27,16 @@ def result():
         if "sin(" in expression:
 
             i = expression.find("sin(")
-            pos_start = i+4                                  #line from 25 to 27 is for obtaing number between brackets
+            pos_start = i+4                                 
             pos_end  = expression.find(")",pos_start)
             short_expression = expression[pos_start:pos_end]
             final_result = round(math.sin(math.radians(float(eval(short_expression)))), 6)
             short_expression = 'sin(' + short_expression + ')'
-            expression = expression.replace(short_expression,str(final_result) )    #29,30 line to replace value of sin() in exprssion
-
+            expression = expression.replace(short_expression,str(final_result) )   
         if "tan(" in expression:
 
             i = expression.find("tan(")
-            pos_start = i+4                                  #line from 25 to 27 is for obtaing number between brackets
+            pos_start = i+4                                
             pos_end  = expression.find(")",pos_start)
             short_expression = expression[pos_start:pos_end]
             final_result = round(math.tan(math.radians(float(eval(short_expression)))), 6)
@@ -49,7 +48,7 @@ def result():
         if "cos(" in expression:
 
             i = expression.find("cos(")
-            pos_start = i+4                                  #line from 25 to 27 is for obtaing number between brackets
+            pos_start = i+4                                  
             pos_end  = expression.find(")",pos_start)
             short_expression = expression[pos_start:pos_end]
             final_result = round(math.cos(math.radians(float(eval(short_expression)))), 6)
@@ -58,7 +57,7 @@ def result():
 
         if "log(" in expression:
             i = expression.find("log(")
-            pos_start = i + 4  # line from 25 to 27 is for obtaing number between brackets
+            pos_start = i + 4  
             pos_end = expression.find(")", pos_start)
             short_expression = expression[pos_start:pos_end]
             final_result = round(math.log10(float(eval(short_expression))), 6)
@@ -67,7 +66,7 @@ def result():
 
         if "ln(" in expression:
             i = expression.find("ln(")
-            pos_start = i + 3  # line from 25 to 27 is for obtaing number between brackets
+            pos_start = i + 3  
             pos_end = expression.find(")", pos_start)
             short_expression = expression[pos_start:pos_end]
             final_result = round(math.log(float(eval(short_expression)),math.e), 6)
@@ -76,7 +75,7 @@ def result():
 
         if "\u221A(" in expression:
                 i = expression.find("\u221A(")
-                pos_start = i + 2                         # line from 25 to 27 is for obtaing number between brackets
+                pos_start = i + 2                         
                 pos_end = expression.find(")", pos_start)
                 short_expression = expression[pos_start:pos_end]
                 final_result = round(math.sqrt(float(eval(short_expression))), 6)
@@ -85,7 +84,7 @@ def result():
 
         if "exp(" in expression:
             i = expression.find("exp(")
-            pos_start = i + 4  # line from 25 to 27 is for obtaing number between brackets
+            pos_start = i + 4  
             pos_end = expression.find(")", pos_start)
             short_expression = expression[pos_start:pos_end]
             final_result = round(math.exp(float(eval(short_expression))), 6)
@@ -93,8 +92,8 @@ def result():
             expression = expression.replace(short_expression, str(final_result))
 
 
-        res = eval(expression)  # here is th e[place i want to edit
-        res = round(res, 13)
+        res = eval(expression) 
+        res = round(res, 15)
         display.set(str(res))
         expression = str(res)
 
