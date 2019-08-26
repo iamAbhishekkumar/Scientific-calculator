@@ -1,5 +1,6 @@
 from tkinter import *
 import math
+from tkinter import messagebox
 import unicodedata
 
 expression= ""
@@ -43,6 +44,12 @@ def result():
     except ValueError:
         display.set("Invalid")
 
+    except SyntaxError:
+        messagebox.showerror("ERROR", "Syntax Error")
+
+    except TypeError:
+        messagebox.showerror("ERROR", "Syntax Error")
+
 
 root = Tk()
 root.geometry("600x400+120+120")
@@ -68,11 +75,12 @@ frame7.pack(expand= True, fill="both")
 
 
 entry_box = Label(frame1, anchor='ne', font="Dina 20", textvariable = display, bg="AntiqueWhite1").pack(expand = True, fill="both")
-note = Label(frame7,anchor='sw',font="Dina 10",text='NOTE:[cDeg=Convert number to degree] [Trigo functions take and give ansers in Radians as default]', bg="PeachPuff3").pack(expand=True,fill="both")
+
+note = Label(frame7, anchor='sw', font="Dina 10", text='NOTE: [cDeg=Convert number to degree] [Trigo functions take and give answers in Radians as default]', bg="PeachPuff3").pack(expand=True,fill="both")
 
 
 btn7 = Button(frame2, text="7 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(7), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
-btn8 = Button(frame2, text="8 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(8), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
+btn8 = Button(frame2, text=" 8 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(8), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn9 = Button(frame2, text="9 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(9), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_mul = Button(frame2, text="*", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('*'), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_sin = Button(frame2, text="sin", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('sin('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
@@ -80,7 +88,7 @@ btn_asin = Button(frame2, text='asin', font="Dina 22", bd=0, relief=GROOVE, comm
 btn_log = Button(frame2, text="log ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('log('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 
 btn4 = Button(frame3, text="4 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(4), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
-btn5 = Button(frame3, text=" 5", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(5), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
+btn5 = Button(frame3, text="  5", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(5), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn6 = Button(frame3, text="  6", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(6), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_sub = Button(frame3, text="  -", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('-'), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_cos = Button(frame3, text=" cos", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('cos('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
@@ -89,7 +97,7 @@ btn_ln = Button(frame3, text=" ln  ", font="Dina 22", bd=0, relief=GROOVE, comma
 
 btn1 = Button(frame4, text="1 ", font="Dina 22", bd=0, relief=GROOVE,  command=lambda :btn_clicked(1),activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn2 = Button(frame4, text="2", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(2), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
-btn3 = Button(frame4, text="3 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(3), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
+btn3 = Button(frame4, text="  3 ", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(3), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_divide = Button(frame4, text="/", font="Dina 22", bd=0, relief=GROOVE, command=lambda : btn_clicked('/'), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_tan = Button(frame4, text="tan", font="Dina 22", bd=0, relief=GROOVE, command=lambda : btn_clicked('tan('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_atan = Button(frame4, text="atan", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('atan('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
@@ -99,8 +107,8 @@ btn_one_clear = Button(frame5, text="CE", font="Dina 18", bd=0, relief=GROOVE, c
 btn0 = Button(frame5, text="0", font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(0), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_clear = Button(frame5, text="AC",font="Dina 18", bd=0, relief=GROOVE,command=btn_clear, activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT,expand=True,fill="both")
 btn_add = Button(frame5, text="+  " , font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('+'),activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
-btn_square =  Button(frame5, text='x\N{SUPERSCRIPT TWO} ', font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('**2'), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
-btn_root =  Button(frame5, text=' \u221A  ', font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('sqrt('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
+btn_square = Button(frame5, text='x\N{SUPERSCRIPT TWO} ', font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('**2'), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
+btn_root = Button(frame5, text=' \u221A  ', font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked('sqrt('), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 btn_pi = Button(frame5, text='  \N{GREEK SMALL LETTER PI} ', font="Dina 22", bd=0, relief=GROOVE, command=lambda :btn_clicked(math.pi), activebackground="PeachPuff3",bg="PeachPuff2").pack(side=LEFT, expand=True, fill="both")
 
 
