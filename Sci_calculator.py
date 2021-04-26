@@ -52,8 +52,7 @@ def result():
 
 
 root = Tk()
-root.geometry("600x400+120+120")
-root.resizable(0,0)
+root.geometry("900x450+120+120")
 root.title("SCIENTIFIC CALCULATOR")
 
 display = StringVar()
